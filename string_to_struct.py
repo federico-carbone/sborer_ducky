@@ -1,7 +1,7 @@
 s = "https://www.youtube.com/watch?v=dQw4w9WgXcQ\n"
 
 m = "abcdefghijklmnopqrstuvwxyz1234567890\nù\b\t -ù[]\\#;'ù,.ùù"
-M = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!\"£$%&/()=ùùùùù?*\{\}|~ù\"ù;:ù"
+M = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!\"£$%&/()=ùùùùù?*\{\}|~ù\":;ùù"
 
 for c in s:
     if c in m:

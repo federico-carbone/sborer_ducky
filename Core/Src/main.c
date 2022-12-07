@@ -69,7 +69,7 @@ const subKeyBoard rickroll[] = {
 	{0,0,0x17,0,0,0,0,0},
 	{0,0,0x13,0,0,0,0,0},
 	{0,0,0x16,0,0,0,0,0},
-	{0x2,0,0x39,0,0,0,0,0},
+	{0x2,0,0x37,0,0,0,0,0},
 	{0x2,0,0x24,0,0,0,0,0},
 	{0x2,0,0x24,0,0,0,0,0},
 	{0,0,0x1a,0,0,0,0,0},
@@ -169,7 +169,10 @@ int main(void)
     SENDCHAR(hUsbDeviceFS, metaSpace, 250);
     for(uint8_t i=0; i<len; ++i) {
       HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
-      SENDCHAR(hUsbDeviceFS, rickroll[i], 5);
+      SENDCHAR(hUsbDeviceFS, rickroll[i], 3);
+      if(i<len-1 && memcmp(&rickroll[i+1], &rickroll[i], sizeof(rickroll[0])) == 0) {
+        SENDCHAR(hUsbDeviceFS, released, 3);
+      }
       HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
     }
     SENDCHAR(hUsbDeviceFS, ret, 50);
